@@ -7,9 +7,42 @@
   <title>Shantivan</title>
   <link rel="stylesheet" href="input.css">
   <!-- <link rel="stylesheet" href="style.css"> -->
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script>
+    function SubForm() {
+      $.ajax({
+        url: 'https://api.apispreadsheets.com/data/DfYkZzBE49l9i10G/',
+        type: 'post',
+        data: $("#myForm").serializeArray(),
+        success: function () {
+          alert("Form Data Submitted :)")
+        },
+        error: function () {
+          alert("There was an error :(")
+        }
+      });
+    }
+
+
+    function SubForm2() {
+      $.ajax({
+        url: 'https://api.apispreadsheets.com/data/f9OS6sRxyiSizrzL/',
+        type: 'post',
+        data: $("#news").serializeArray(),
+        success: function () {
+          alert("Form Data Submitted :)")
+        },
+        error: function () {
+          alert("There was an error :(")
+        }
+      });
+    }
+  </script>
 </head>
 
-<body>
+<body class="scroll-smooth">
 
   <header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full text-sm py-4 bg-white">
     <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between " aria-label="Global">
@@ -38,30 +71,56 @@
       <div id="navbar-image-and-text-2"
         class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
         <div class="flex flex-col mr-28 gap-5 mt-5 sm:flex-row sm:items-center sm:justify-center sm:mt-0 sm:pl-5">
-          <a class="font-custom font-medium text-black text-xl space-x-1" href="#">Home</a>
-          <a class="font-custom font-medium text-xl space-x-1 text-black" href="#">About</a>
-          <a class="font-custom font-medium text-xl space-x-1 text-black" href="#">Work</a>
-          <a class="font-custom font-medium text-xl space-x-1 text-black" href="#">Blog</a>
+          <a class="font-custom font-medium text-black text-xl space-x-1 hover:border-b-blue-700 border-b-2"
+            href="#home">Home</a>
+          <a class="font-custom font-medium text-xl space-x-1 text-black hover:border-b-blue-700 border-b-2"
+            href="#about">About</a>
+          <a class="font-custom font-medium text-xl space-x-1 text-black hover:border-b-blue-700 border-b-2"
+            href="#work">Work</a>
+          <a class="font-custom font-medium text-xl space-x-1 text-black hover:border-b-blue-700 border-b-2"
+            href="#blog">Blog</a>
+          <a class="font-custom font-medium text-xl space-x-1 text-black hover:border-b-blue-700 border-b-2"
+            href="#strategy">Strategies</a>
+          <a class="font-custom font-medium text-xl space-x-1 text-black hover:border-b-blue-700 border-b-2"
+            href="#contact">Contacts</a>
         </div>
       </div>
     </nav>
   </header>
 
-  <div>
+  <div id="home">
     <div class="bg-gradient-to-r from-cyan-500 to-blue-500 w-full relative h-110">
       <img class="w-full h-110 object-cover absolute mix-blend-overlay" src="images/doctor-group.jpg" alt="doctors">
 
-      <div class="relative top-36 p-24">
-        <h2 class="text-black font-bold font-custom text-5xl">Embracing Mental Wellness</h2>
-        <p class="font-custom text-black text-2xl mt-3 font-semibold">Creating a Nurturing Home Environment</p>
-        <button
-          class="bg-blue-700 px-14 rounded-2xl font-custom mt-6 py-3 text-white hover:bg-white hover:text-black">Explore</button>
+      <div class="relative top-36 p-4 sm:p-10 md:p-16 lg:p-24"> <!-- Adjust padding for different screen sizes -->
+        <h2 class="text-black font-bold font-custom text-2xl sm:text-5xl bg-white inline px-2 py-1">Embracing Mental
+          Wellness</h2>
+        <p
+          class="font-custom text-black text-xl sm:text-2xl mt-4 sm:mt-7 font-semibold bg-white w-80 sm:w-104 px-1 py-2">
+          Creating a Nurturing Home
+          Environment</p>
+        <div class="flex flex-col mt-4 sm:flex-row sm:space-x-4"> <!-- Adjust spacing for different screen sizes -->
+          <button
+            class="bg-blue-700 px-10 sm:px-14 rounded-2xl font-custom mt-4 sm:mt-6 py-3 text-white hover:bg-white hover:text-black">
+            <a href="#about">Explore</a></button>
+          <button id="btn"
+            class="bg-blue-700 px-10 sm:px-14 rounded-2xl font-custom mt-4 sm:mt-6 py-3 text-white hover:bg-white hover:text-black">Chat
+          </button>
+        </div>
       </div>
+
+      <div class="relative bottom-24 sm:bottom-60 inline-block float-right">
+        <!-- Adjust position for different screen sizes -->
+        <iframe id="chat" class="mx-auto" width="350" height="430" allow="microphone;"
+          src="https://console.dialogflow.com/api-client/demo/embedded/d4ce7dcc-c852-4dbd-a4c6-552b63ed77f2"></iframe>
+      </div>
+
     </div>
+
   </div>
 
   <!-- Features -->
-  <div class="mt-40 max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div id="about" class="mt-40 max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <!-- Grid -->
     <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
       <div>
@@ -155,7 +214,7 @@
 
 
 
-  <div class="sm:w-1/2 xl:w-1/3 mx-auto text-center mb-6 md:mb-12">
+  <div id="work" class="sm:w-1/2 xl:w-1/3 mx-auto text-center mb-6 md:mb-12">
     <h2 class="font-custom mt-10 text-center font-bold md:text-5xl md:text-black">Our offerings</h2>
   </div>
   <!-- Card Blog -->
@@ -173,10 +232,11 @@
 
           <div class="grow mt-4 sm:mt-0 sm:ml-6 px-4 sm:px-0">
             <h3 class="font-info text-xl font-semibold text-black">
-              Studio by Preline
+              Community Counselling
             </h3>
             <p class=" font-info mt-3 text-black">
-              Produce professional, reliable streams easily leveraging Preline's innovative broadcast studio
+              We are highly involved in providing community counselling which is a great way for people to get answers
+              for the issues they are facing.
             </p>
             <p
               class="font-info mt-4 inline-flex items-center gap-x-1.5 text-blue-400 decoration-2 hover:underline font-medium">
@@ -202,10 +262,11 @@
 
           <div class="grow mt-4 sm:mt-0 sm:ml-6 px-4 sm:px-0">
             <h3 class="font-info text-xl font-semibold text-black">
-              Onsite
+              Family Counselling
             </h3>
             <p class="font-info mt-3 text-black">
-              Optimize your in-person experience with best-in-class capabilities like badge printing and lead retrieval
+              Our Family Counselling services are designed to support and strengthen family bonds, promote open
+              communication, and foster a healthier family dynamic.
             </p>
             <p
               class="font-info mt-4 inline-flex items-center gap-x-1.5 text-blue-400 decoration-2 hover:underline font-medium">
@@ -231,10 +292,12 @@
 
           <div class="grow mt-4 sm:mt-0 sm:ml-6 px-4 sm:px-0">
             <h3 class="font-info text-xl font-semibold text-black">
-              The complete guide to OKRs
+              Couples Therapy
             </h3>
             <p class="font-info mt-3 text-black">
-              How to make objectives and key results work for your company
+              Our Couples Therapy
+              services are designed to help partners reconnect, improve communication, and build a stronger, more
+              fulfilling relationship.
             </p>
             <p
               class="font-info mt-4 inline-flex items-center gap-x-1.5 text-blue-400 decoration-2 hover:underline font-medium">
@@ -260,10 +323,11 @@
 
           <div class="grow mt-4 sm:mt-0 sm:ml-6 px-4 sm:px-0">
             <h3 class="font-info text-xl font-semibold text-black">
-              People program models
+              Children Therapy
             </h3>
             <p class="font-info mt-3 text-black">
-              Six approaches to bringing your People strategy to life
+              Our Children's Therapy services are dedicated to helping children overcome challenges, develop essential
+              skills, and achieve their full potential.
             </p>
             <p
               class="font-info mt-4 inline-flex items-center gap-x-1.5 text-blue-400 decoration-2 hover:underline font-medium">
@@ -291,10 +355,11 @@
 
           <div class="grow mt-4 sm:mt-0 sm:ml-6 px-4 sm:px-0">
             <h3 class="font-info text-xl font-semibold text-black">
-              The complete guide to OKRs
+              Career Counselling
             </h3>
             <p class="font-info mt-3 text-black">
-              How to make objectives and key results work for your company
+              Our Career Counseling services are dedicated to helping individuals explore their passions, talents, and
+              interests to make informed career choices.
             </p>
             <p
               class="font-info mt-4 inline-flex items-center gap-x-1.5 text-blue-400 decoration-2 hover:underline font-medium">
@@ -319,10 +384,11 @@
 
           <div class="grow mt-4 sm:mt-0 sm:ml-6 px-4 sm:px-0">
             <h3 class="font-info text-xl font-semibold text-black">
-              People program models
+              Individual Therapy
             </h3>
             <p class="font-info mt-3 text-black">
-              Six approaches to bringing your People strategy to life
+              Our Individual Therapy services are designed to provide you with a safe and supportive space to explore
+              your thoughts, emotions, and personal challenges.
             </p>
             <p
               class="font-info mt-4 inline-flex items-center gap-x-1.5 text-blue-400 decoration-2 hover:underline font-medium">
@@ -345,14 +411,12 @@
   <!-- Blogs -->
 
   <!-- Card Blog -->
-  <div
+  <div id="blog"
     class="bg-cover bg-gradient-to-r from-cyan-500 to-blue-500  max-w-[100rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <!-- Title -->
     <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
       <h2 class="font-custom font-bold md:text-6xl md:leading-tight dark:text-white">Blogs</h2>
-      <p class="font-info mt-1 text-xl text-white">See how game-changing companies are making the most of every
-        engagement with
-        Preline.
+      <p class="font-info mt-1 text-xl text-white">Explore These Transformative Blogs for Enhanced Mental Health
       </p>
     </div>
     <!-- End Title -->
@@ -430,7 +494,7 @@
   <!-- FAQ -->
 
   <!-- Team -->
-  <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div id="strategy" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <!-- Title -->
     <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
       <h2 class="text-2xl font-custom font-bold md:text-4xl md:text-black">Coping Techniques</h2>
@@ -519,7 +583,7 @@
   <!-- End Team -->
 
 
-  <div class="doctor flex flex-row bg-gray-100 h-110  ">
+  <div class="doctor flex flex-row bg-gray-100 h-110 w-full bg-cover ">
     <div class="ml-20 mt-10 ">
       <img class="w-110  rounded-3xl hover:bg-white" src="images/confident.jpg" alt="doctors-advice">
     </div>
@@ -527,7 +591,7 @@
       <div class="sm:w-1/2 xl:w-1/3 mx-auto text-center  md:mb-12">
         <h1 class="text-xl font-custom font-semibold md:text-3xl md:leading-tight text-black">Our Experts</h1>
       </div>
-      <div class=" mt-0  w-110">
+      <div class=" mt-0 w-110">
         <p class="mt-3 border-2block space-x-3 text-center px-4 font-info ">We emphasize the importance of prioritizing
           mental well-being just as we do with physical health. Reducing the stigma surrounding mental health is a
           crucial objective, as it encourages open discussions and early interventions, leading to improved treatment
@@ -538,25 +602,26 @@
           health professionals are also critical aspects of our recommendations.</p>
       </div>
 
-      <div class="relative buttons flex flex-row justify-between mt-14">
+      <div class=" buttons flex flex-row justify-between mt-14">
         <button
           class="show-modal bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-3 rounded-2xl text-white hover:text-black"
-          data-text="You can connect with ms mitali at: 9856473219 and the address will be moti nagar, near ramjas colony, New Delhi">Ms
+          data-text="You can connect with Ms Mitali at: 9856473219 and the address is moti nagar, near ramjas colony, New Delhi">Ms
           Mitali
           svr</button>
         <button
           class="show-modal bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-3 rounded-2xl text-white hover:text-black"
-          data-text="You can connect with mr Rahul at: 9856473219 and the address will be moti nagar, near ramjas colony, New Delhi">Mr
+          data-text="You can connect with Mr Rohan at: 9337658473 and the address is Ashok Vihar, New Delhi">Mr
           Rohan
           arora</button>
         <button
           class="show-modal bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-3 rounded-2xl text-white hover:text-black"
-          data-text="You can connect with ms krushal at: 9856473219 and the address will be moti nagar, near ramjas colony, New Delhi">Ms
+          data-text="You can connect with Ms krushal at: 9222289713 and the address is Dwarka, New Delhi">Ms
           Krushal</button>
 
-        <div class="modal absolute -mt-96 -ml-110 bg-white text-black w-96 p-24 rounded-2xl z-10 hidden">
-          <button class="close-modal">&times;</button>
-          <p></p>
+        <div
+          class="modal absolute -mt-96 -ml-110 bg-white text-black w-96 p-24 rounded-2xl z-10 hidden border-2 border-blue-700">
+          <button class="close-modal ">&times;</button>
+          <p class=" text-xl  font-custom"></p>
         </div>
 
 
@@ -574,8 +639,55 @@
 
 
 
+
+  <!-- <div class="doctor flex flex-col sm:flex-row bg-gray-100 h-110">
+    <div class="mx-auto sm:ml-20 sm:mt-10">
+      <img class="w-80 sm:w-110 rounded-3xl hover:bg-white" src="images/confident.jpg" alt="doctors-advice">
+    </div>
+    <div class="expert-advice mt-8 sm:mt-24 mx-auto sm:ml-40">
+      <div class="sm:w-1/2 xl:w-1/3 mx-auto text-center  md:mb-12">
+        <h1 class="text-xl font-custom font-semibold md:text-3xl md:leading-tight text-black">Our Experts</h1>
+      </div>
+      <div class="mt-3 w-80 sm:w-110 sm:h-60 ">
+        <p class="mt-3 block space-x-3 text-center px-4 font-info">We emphasize the importance of
+          prioritizing
+          mental well-being just as we do with physical health. Reducing the stigma surrounding mental health is a
+          crucial objective, as it encourages open discussions and early interventions, leading to improved treatment
+          outcomes. We firmly believe in taking a holistic approach to mental health, considering factors like
+          lifestyle, social connections, and therapy, as it proves effective in promoting overall well-being. We
+          advocate for self-care practices, including mindfulness, exercise, and balanced living, as foundational
+          pillars for maintaining good mental health. Building strong support systems and seeking help from mental
+          health professionals are also critical aspects of our recommendations.</p>
+      </div>
+
+      <div class="buttons flex flex-col sm:flex-row justify-between mt-6 sm:mt-14 space-y-4 sm:space-y-0 sm:space-x-4">
+        <button
+          class="show-modal bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-3 rounded-2xl text-white hover:text-black"
+          data-text="You can connect with Ms Mitali at: 9856473219 and the address is moti nagar, near ramjas colony, New Delhi">Ms
+          Mitali svr</button>
+        <button
+          class="show-modal bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-3 rounded-2xl text-white hover:text-black"
+          data-text="You can connect with Mr Rohan at: 9337658473 and the address is Ashok Vihar, New Delhi">Mr Rohan
+          arora</button>
+        <button
+          class="show-modal bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-3 rounded-2xl text-white hover:text-black"
+          data-text="You can connect with Ms krushal at: 9222289713 and the address is Dwarka, New Delhi">Ms
+          Krushal</button>
+
+        <div
+          class="modal absolute -mt-96 -ml-80 bg-white text-black w-80 sm:w-96 p-8 sm:p-24 rounded-2xl z-10 hidden border-2 border-blue-700">
+          <button class="close-modal ">&times;</button>
+          <p class="text-xl font-custom"></p>
+        </div>
+      </div>
+      <div class="overlay hidden fixed inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-50 cursor-pointer">
+      </div>
+    </div>
+  </div> -->
+
+
   <!-- Contact Us -->
-  <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div id="contact" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <div class="max-w-2xl lg:max-w-5xl mx-auto">
       <div class="text-center">
         <h1 class=" font-custom text-4xl font-bold text-black ">
@@ -594,7 +706,7 @@
             Fill in the form
           </h2>
 
-          <form>
+          <form id="myForm">
             <div class="grid gap-4 ">
               <!-- Grid -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 ">
@@ -602,14 +714,14 @@
                   <label for="hs-firstname-contacts-1" class="sr-only">First Name</label>
                   <input type="text" name="hs-firstname-contacts-1" id="hs-firstname-contacts-1"
                     class="font-info py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 bg-white text-black"
-                    placeholder="First Name">
+                    placeholder="First Name" required>
                 </div>
 
                 <div>
                   <label for="hs-lastname-contacts-1" class="sr-only">Last Name</label>
                   <input type="text" name="hs-lastname-contacts-1" id="hs-lastname-contacts-1"
                     class="font-info py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 bg-white text-black"
-                    placeholder="Last Name">
+                    placeholder="Last Name" required>
                 </div>
               </div>
               <!-- End Grid -->
@@ -618,14 +730,14 @@
                 <label for="hs-email-contacts-1" class="sr-only">Email</label>
                 <input type="email" name="hs-email-contacts-1" id="hs-email-contacts-1" autocomplete="email"
                   class="font-info py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 bg-white text-black"
-                  placeholder="Email">
+                  placeholder="Email" required>
               </div>
 
               <div>
                 <label for="hs-phone-number-1" class="sr-only">Phone Number</label>
                 <input type="text" name="hs-phone-number-1" id="hs-phone-number-1"
                   class="font-info py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-white text-black"
-                  placeholder="Phone Number">
+                  placeholder="Phone Number" required>
               </div>
 
               <div>
@@ -638,8 +750,11 @@
             <!-- End Grid -->
 
             <div class="mt-4 grid">
+
+              <!-- <input type="submit" value="submit"> -->
               <button type="submit"
-                class="font-info inline-flex justify-center items-center gap-x-3 text-center bg-white  border border-transparent text-sm lg:text-base text-black  rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark">Submit
+                class="font-info inline-flex justify-center items-center gap-x-3 text-center bg-white  border border-transparent text-sm lg:text-base text-black  rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark"
+                onclick="SubForm()">Submit
               </button>
             </div>
 
@@ -857,7 +972,7 @@
         <div class="col-span-2">
           <h4 class="font-semibold text-gray-100 font-custom">Subscribe our newsletter</h4>
 
-          <form>
+          <form id="news">
             <div class="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:gap-3 bg-white rounded-md p-2">
               <div class="w-full">
                 <label for="hero-input" class="sr-only font-custom">Search</label>
@@ -866,7 +981,7 @@
                   placeholder="Enter your email">
               </div>
               <a class=" font-custom w-full sm:w-auto whitespace-nowrap inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4"
-                href="#">
+                onclick="SubForm2()" href="#">
                 Subscribe
               </a>
             </div>
@@ -883,11 +998,17 @@
     </div>
   </footer>
 
-
-  <!-- <iframe class="mx-auto" width="350" height="430" allow="microphone;"
-    src="https://console.dialogflow.com/api-client/demo/embedded/d4ce7dcc-c852-4dbd-a4c6-552b63ed77f2"></iframe> -->
-  <!-- <script src="./node_modules/preline/dist/preline.js"></script> -->
+  <script src="./node_modules/preline/dist/preline.js"></script>
   <script src="index.js"></script>
+
+
+
+  </script>
+
+
+
+
+
 
 </body>
 

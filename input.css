@@ -2,5 +2,9 @@
 @tailwind components;
 
 @tailwind utilities;
+@layer utilities {
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+}
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Lobster&family=Pacifico&family=Poppins&display=swap");
-

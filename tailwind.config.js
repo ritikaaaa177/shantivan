@@ -1,10 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // purge: [
+  //   // Other paths to your HTML files
+  //   "./index.html",
+  // ],
   content: ["*"],
   theme: {
     extend: {
       spacing: {
         110: "36rem",
+        104: "30rem",
+        120: "40rem",
+      },
+
+      left: {
+        120: "45rem",
+        140: "60rem",
       },
 
       boxShadow: {

@@ -29,3 +29,14 @@ for (let i = 0; i < btnopen.length; i++) {
 }
 
 btnclose.addEventListener("click", close);
+
+const btn = document.getElementById("btn");
+const chat = document.getElementById("chat");
+
+btn.addEventListener("click", function () {
+  if (chat.style.display === "none") {
+    chat.style.display = "block";
+  } else {
+    chat.style.display = "none";
+  }
+});
